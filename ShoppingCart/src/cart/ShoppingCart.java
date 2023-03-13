@@ -10,11 +10,11 @@ public class ShoppingCart {
 
 	public static void main(String[] args) {
 
-		List<String> ip = Arrays.asList("Apple", "Orange", "orange", "orangE", "Apple", "Apple", "Apple", "Orange",
+		List<String> input = Arrays.asList("ApplE", "Orange", "orange", "orangE", "Apple", "Apple", "Apple", "Orange",
 				"orange", "orangE", "Orange"); // add further items in cart for checkout
 
-		Boolean offerOnApple = false;
-		Boolean offerOnOrange = true;
+		Boolean offerOnApple = true;		// set true if offer exists, false if not
+		Boolean offerOnOrange = true;		// set true if offer exists, false if not
 
 		Map<String, Double> itemCost = new HashMap<String, Double>();
 		itemCost.put("apple", 0.60);
@@ -28,7 +28,7 @@ public class ShoppingCart {
 		s.setBuyThreeAtTwoOnOrange(offerOnOrange);
 
 		List<String> cart = new ArrayList<String>();
-		for (String str : ip) {
+		for (String str : input) {
 			cart.add(str.toLowerCase());
 		}
 
@@ -40,7 +40,6 @@ public class ShoppingCart {
 			s.updateCart(cart);
 			totalCost = s.findTotalCost();
 
-			System.out.println("items brought: " + s.getItemCount());
 			System.out.println("Total cost: " + totalCost);
 		} catch (Exception e) {
 			System.out.println("Could not checkout Cart due to the below reason");
